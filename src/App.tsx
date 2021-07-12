@@ -1,10 +1,17 @@
-import React from 'react';
-import './App.css';
+import ButtonBox from './Box/ButtonBox';
 
 function App() {
   return (
     <div className="App">
-      <p>welcome to my antd</p>
+      <div className="header">
+        <h1>welcome to my antd</h1>
+      </div>
+      <div className="mainContent">
+        <span className="title">--BUTTON--</span>
+        <div className="content height-200">
+          <ButtonBox></ButtonBox>
+        </div>
+      </div>
     </div>
   );
 }
