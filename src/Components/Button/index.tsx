@@ -14,6 +14,7 @@ export enum btnSize {
   Large = 'lg',
   Small = 'sm'
 }
+
 interface IButtonProps {
   children?: React.ReactNode;
   type?: btnType;
@@ -22,16 +23,23 @@ interface IButtonProps {
   href?: string;
 }
 
-const MyButton:FC<IButtonProps> = (props) => {
+//定义button与a标签的自身属性
+type ButtonOwnProps = IButtonProps & React.ButtonHTMLAttributes<HTMLElement>;
+type AnchorOwnProps = IButtonProps & React.AnchorHTMLAttributes<HTMLElement>;
+export type ButtonCoverProps = Partial<ButtonOwnProps & AnchorOwnProps>;
+
+const MyButton:FC<ButtonCoverProps> = (props) => {
   const {
     children,
+    className, //可以自定义传进的className
     size,
     type,
     href,
-    disabled
+    disabled,
+    ...restProps
   } = props
 
-  const btnClass = classNames('btn',{
+  const btnClass = classNames('btn', className, {
     [`btn-${type}`]: type,
     [`btn-${size}`]: size,
     'disabled': disabled && (type === btnType.Link),
@@ -42,6 +50,7 @@ const MyButton:FC<IButtonProps> = (props) => {
       <a 
         className={btnClass}
         href={href}
+        {...restProps}
       >
         {children}
       </a>
@@ -52,6 +61,7 @@ const MyButton:FC<IButtonProps> = (props) => {
     <button 
       className={btnClass}
       disabled={disabled}
+      {...restProps}
     >
       {children}
     </button>

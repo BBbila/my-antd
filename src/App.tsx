@@ -1,4 +1,5 @@
 import ButtonBox from './Box/ButtonBox';
+import { observer , inject }from 'mobx-react';
 
 function App() {
   return (
@@ -16,4 +17,4 @@ function App() {
   );
 }
 
-export default App;
+export default inject(store => store)(observer(App));

@@ -5,11 +5,12 @@ import stores from './mobx/index';
 import './Common/styles/index.scss';
 import App from './App';
 import BarBox from './Box/BarBox/index';
+import ButtonBox from './Box/ButtonBox/index';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <Provider {...stores}>
-    <BarBox />
+    <App />
   </Provider>,
   document.getElementById('root')
 );

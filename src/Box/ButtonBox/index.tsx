@@ -1,27 +1,44 @@
-import {FC,Fragment} from "react";
-import MyButton,{btnType ,btnSize} from '../../Components/Button';
+import {Fragment} from "react";
+import MyButton,{btnType , btnSize} from '../../Components/Button';
+import { buttonStore } from '../../mobx/button';
+import { observer , inject }from 'mobx-react';
 
-const ButtonBox:FC =(props: any)=> {
+interface Iprops {
+  children?: any;
+}
+
+const ButtonBox =({props , buttonStore}: Iprops & any)=> {
+
+  const store = buttonStore;
   return(
     <Fragment>
       <div className="flex-b width-100per">
         <MyButton
-          type={btnType.Primary}
+          type={btnType.Primary as any}
+          onClick={store.handleClickTime}
         >
           Primary
         </MyButton>
+        {store.isShow &&
+        <span>您已经点击了{store.num}次 
+          <span 
+            style={{color:'red',marginLeft:'10px'}}
+            onClick={store.handleClickHide}
+          >隐藏</span>
+        </span>
+        }
         <MyButton
-          type={btnType.Default}
+          type={btnType.Default as any}
         >
           Default
         </MyButton>
         <MyButton
-          type={btnType.Danger}
+          type={btnType.Danger as any}
         >
           Danger
         </MyButton>
         <MyButton
-          type={btnType.Disabled}
+          type={btnType.Disabled as any}
           disabled
         >
           Disabled
@@ -29,25 +46,25 @@ const ButtonBox:FC =(props: any)=> {
       </div>
       <div className="flex-b width-100per">
         <MyButton
-          type={btnType.Primary}
+          type={btnType.Primary as any}
           size={btnSize.Large}
         >
           Primary
         </MyButton>
         <MyButton
-          type={btnType.Default}
+          type={btnType.Default as any}
           size={btnSize.Large}
         >
           Default
         </MyButton>
         <MyButton
-          type={btnType.Danger}
+          type={btnType.Danger as any}
           size={btnSize.Small}
         >
           Danger
         </MyButton>
         <MyButton
-          type={btnType.Disabled}
+          type={btnType.Disabled as any}
           size={btnSize.Small}
           disabled
         >
@@ -56,30 +73,30 @@ const ButtonBox:FC =(props: any)=> {
       </div>
       <div className="flex-b width-100per">
         <MyButton
-          type={btnType.Link}
+          type={btnType.Link as any}
         >
           Link1
         </MyButton>
         <MyButton
-          type={btnType.Link}
+          type={btnType.Link as any}
           disabled
         >
           Link2
         </MyButton>
         <MyButton
-          type={btnType.Link}
+          type={btnType.Link as any}
           href="https://codersblock.com"
         >
           Link3
         </MyButton>
         <MyButton
-          type={btnType.Link}
+          type={btnType.Link as any}
           size={btnSize.Small}
         >
           Link4
         </MyButton>
         <MyButton
-          type={btnType.Link}
+          type={btnType.Link as any}
           size={btnSize.Large}
         >
           Link5
@@ -89,4 +106,4 @@ const ButtonBox:FC =(props: any)=> {
   )
 }
 
-export default ButtonBox;
+export default inject(store => store)(observer(ButtonBox));

@@ -19,6 +19,7 @@ class Store {
   //删除list中最后一项
   @action.bound 
   cancel() {
+    console.log("6666")
     if(this.list.length > 0 ){
       this.list.pop();
     }

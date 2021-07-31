@@ -2,7 +2,6 @@ import { observer , inject }from 'mobx-react';
 import Cube from './cube';
 
 const BarBox = ({ store }: any) =>{
-
   return (
     <div style={{padding:'20px'}}>
       <div className="mainContent">

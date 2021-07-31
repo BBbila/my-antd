@@ -1,7 +1,9 @@
 import {store} from './store';
+import {buttonStore} from './button';
 
 const stores:any = {
-  store
+  store,
+  buttonStore
 };
 
 /// 默认导出接口
