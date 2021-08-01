@@ -1,6 +1,5 @@
 import {Fragment} from "react";
 import MyButton,{btnType , btnSize} from '../../Components/Button';
-import { buttonStore } from '../../mobx/button';
 import { observer , inject }from 'mobx-react';
 
 interface Iprops {
