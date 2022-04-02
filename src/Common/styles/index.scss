@@ -3,6 +3,8 @@
 @import './layout.scss';
 @import './mixin.scss';
 @import '../../Components/Button/index.scss';
+@import '../../Box/Accordion/index.scss';
+
 
 .App {
   padding: 0px;
@@ -17,26 +19,33 @@
     box-sizing: border-box;
     padding-left: 30px;
   }
-  .mainContent {
-    padding: 0px 30px 0px 30px;
-    box-sizing: border-box;
-    width: 100%;
-    height: auto;
-    .title {
-      color: $gray-900;
-      font-weight: $font-weight-bolder;
-      display: block;
-      margin: 10px 0px;
-    }
-    .content {
+  .main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    height: 100%;
+    .mainContent {
+      padding: 0px 30px 0px 30px;
+      box-sizing: border-box;
       width: 100%;
-      overflow: hidden;
-      border-radius: 20px;
-      box-shadow: 0px 1px 3px 0px rgb(153, 152, 152);
-      background-color: #FFF;
-      padding: 0px 10px 0px 10px;
-      margin-bottom: 10px;
+      height: auto;
+      margin-left: 50px;
+      .title {
+        color: $gray-900;
+        font-weight: $font-weight-bolder;
+        display: block;
+        margin: 10px 0px;
+      }
+      .content {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 20px;
+        box-shadow: 0px 1px 3px 0px rgb(153, 152, 152);
+        background-color: #FFF;
+        padding: 0px 10px 0px 10px;
+        margin-bottom: 10px;
+      }
     }
   }
-  
 }
