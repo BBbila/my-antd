@@ -5,9 +5,9 @@ import UseRefCon from "../ReatHooks/useRef";
 const Test = () => {
   return (
     <Fragment>
-      <UseRefCon></UseRefCon>
-      <UseRefCon></UseRefCon>
-      <UseRefCon></UseRefCon>
+      <UseRefCon isShow={false} />
+      <UseRefCon isShow={false}></UseRefCon>
+      <UseRefCon isShow={false}></UseRefCon>
     </Fragment>
   );
 };

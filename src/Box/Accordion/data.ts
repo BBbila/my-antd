@@ -8,6 +8,11 @@ export const configList = [
         name: "button",
         url: "",
       },
+      {
+        pid: "02",
+        name: "menu",
+        url: "",
+      },
     ],
   },
   {
@@ -39,17 +44,6 @@ export const configList = [
         pid: "01",
         name: "useRef",
         url: "../../ReatHooks/useRef",
-      },
-    ],
-  },
-  {
-    id: "2",
-    title: "reacthooks",
-    child: [
-      {
-        pid: "01",
-        name: "测试",
-        url: "../../page/test",
       },
     ],
   },
